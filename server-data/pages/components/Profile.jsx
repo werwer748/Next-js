@@ -1,5 +1,6 @@
 import css from "styled-jsx/css";
 import {GoMail, GoOrganization, GoLink, GoLocation} from "react-icons/go";
+import Image from "next/image";
 
 const style = css`
     .profile-box {
@@ -48,7 +49,7 @@ const Profile=({user})=>{
         <>
             <div className="profile-box">
                 <div className="profile-image-wrapper">
-                    <img
+                    <Image
                         className="profile-image"
                         src={user.avatar_url}
                         alt={`${user.name} 프로필 이미지`}
