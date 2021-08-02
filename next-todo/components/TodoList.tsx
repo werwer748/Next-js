@@ -168,26 +168,26 @@ const TodoList: React.FC<IProps> = ({todos}) => {
     // console.log(getTodoColorNums());
     const todoColorNums = useMemo(getTodoColorNums,[todos]);
 
+    //문자열 인덱스 사용을 위한 타입
     type ObjectIndexType = {
         [key:string]:number | undefined;
-    };
-    //색깔 객체 2
-    const todoColorNums2 = useMemo(()=>{
-        const colors: ObjectIndexType = {};
-        todos.forEach((todo) => {
-            const value = colors[todo.color];
-            if(!value){
-                //없는 키값
-                colors[`${todo.color}`] = 1;
-            }
-            else {
-                //존재하는 키
-                colors[`${todo.color}`] = value + 1;
-            }
-        });
-        return colors;
-    },[todos]);
-    console.log(todoColorNums2)
+    }
+
+    //색깔 객체 구하기2
+  const todoColorNums2 = useMemo(() => {
+    const colors: ObjectIndexType = {};
+    todos.forEach((todo) => {
+      const value = colors[todo.color];
+      if (!value) {
+        //* 존재하지않던 key라면
+        colors[`${todo.color}`] = 1;
+      } else {
+        //* 존재하는 키라면
+        colors[`${todo.color}`] = value + 1;
+      }
+    });
+    return colors;
+  }, [todos]);
 
     return (
         <Container>
@@ -202,7 +202,7 @@ const TodoList: React.FC<IProps> = ({todos}) => {
                     {Object.keys(todoColorNums).map((color, index)=>(
                         <div className="todo-list-header-color-num" key={index}>
                             <div className={`todo-list-header-round-color bg-${color}`} />
-                            <p>{todoColorNums.[color]}개</p>
+                            <p>{todoColorNums[color]}개</p>
                         </div>
                     ))}
                 </div>

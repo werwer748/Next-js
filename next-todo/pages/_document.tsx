@@ -37,8 +37,6 @@ class CustomDocument extends Document {
         return (
             <Html lang="ko">
                 <Head>
-                    <meta name="title" content="깃허브 레파지토리" />
-                    <meta name="description" content="깃허브 레파지토리 리스트입니다." />
                     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,700;1,400&display=swap" rel="stylesheet"/>
                     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" />
                 </Head>
